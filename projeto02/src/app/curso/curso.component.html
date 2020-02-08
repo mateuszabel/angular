@@ -1,0 +1,31 @@
+<form [formGroup]="formulario"> 
+    <input type="text" formControlName="nome" class="form-control" placeholder="Nome">
+    <input type="text" formControlName="tempo" class="form-control" placeholder="Carga Horária">
+    <input type="text" formControlName="valor" class="form-control" placeholder="Valor">
+
+    <button class="btn btn-primary" (click)="adicionar()">Enviar</button>
+</form>
+
+<table class="table table-striped"> 
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>nome</th>
+            <th>Carga Horária</th>
+            <th>Valor</th>
+            <th>Excluir</th>
+        </tr>
+    </thead>
+
+
+<tbody>
+    <tr *ngFor="let curso of vetor; let indice = index">
+        <td>{{indice+1}}</td>
+        <td>{{curso.nome}}</td>
+        <td>{{curso.tempo}}</td>
+        <td>{{curso.valor}}</td>
+        <td><button class="btn btn-danger" (click)="remover(indice)">Excluir</button></td>
+    </tr>
+</tbody>
+
+</table>
